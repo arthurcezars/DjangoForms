@@ -17,3 +17,17 @@ class PassagemForms(forms.Form):
         required=False
     )
     email = forms.EmailField(label='Email', max_length=150)
+
+    def clean_origem(self):
+        origem = self.cleaned_data.get('origem')
+        if any(char.isdigit() for char in origem):
+            raise forms.ValidationError('Origem inválida: Não inclua números')
+        else:
+            return origem
+
+    def clean_destino(self):
+        destino = self.cleaned_data.get('destino')
+        if any(char.isdigit() for char in destino):
+            raise forms.ValidationError('Destino inválido: Não inclua números')
+        else:
+            return destino
