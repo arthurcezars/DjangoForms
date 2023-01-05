@@ -5,7 +5,10 @@
 <p>Sua data de ida é: {{ form.data_ida.value }}</p>
 <p>Sua data de volta é: {{ form.data_volta.value }}</p>
 <p>Pesquisa realizada: {{ form.data_pesquisa.value }}</p>
-<p>Classe de vôo: {{ form.classe_viagem.value }}</p>
+<!-- Retorna o valor definido fora do parenteses para a escolha definida no classe_viagem -->
+<!-- <p>Classe de vôo: {{ form.classe_viagem.value }}</p> -->
+<!-- Retorna o valor "legível" que definimos dentro dos parenteses no classe_viagem -->
+<p>Classe de vôo: {{ form.instance.get_classe_viagem_display }}</p>
 <p>Informações extras: {{ form.informacoes.value }}</p>
-<p>Email: {{ form.email.value }}</p>
+<p>Email: {{ pessoa_form.email.value }}</p>
 {% endblock %}
